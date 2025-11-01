@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom colors */
+@layer base {
+  :root {
+    --primary: #D4AF37;
+    --primary-dark: #B8941F;
+    --secondary: #800020;
+    --gold: #D4AF37;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .bg-pattern {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0icmdiYSgyMTIsIDE3NSwgNTUsIDAuMSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=");
+  }
+}
+
+/* Komponen khusus */
+@layer components {
+  /* Navbar */
+  .navbar {
+    @apply bg-white bg-opacity-80 backdrop-blur-lg shadow-sm border-b border-primary border-opacity-10 transition-all duration-300 z-50 fixed top-0 left-0 right-0;
+  }
+  
+  .navbar.scrolled {
+    @apply bg-opacity-95 shadow-md;
+  }
+  
+  /* Navigation Links - Desktop */
+  .nav-link {
+    @apply text-dark font-semibold mx-1 px-4 py-2 rounded-lg hover:text-primary hover:bg-primary hover:bg-opacity-5 transition-all duration-300 text-sm;
+  }
+  
+  .nav-link:hover {
+    @apply bg-primary bg-opacity-10 transform -translate-y-0.5;
+  }
+  
+  .nav-link.active {
+    @apply text-primary font-bold bg-primary bg-opacity-10;
+  }
+  
+  /* Navigation Links - Mobile */
+  .nav-link-mobile {
+    @apply text-dark font-medium px-4 py-3 rounded-lg hover:text-primary hover:bg-primary hover:bg-opacity-5 transition-all duration-300 flex items-center;
+  }
+  
+  .nav-link-mobile:hover {
+    @apply bg-primary bg-opacity-10;
+  }
+  
+  .nav-link-mobile.active {
+    @apply text-primary font-bold bg-primary bg-opacity-10;
+  }
+  
+  /* Buttons */
+  .btn-daftar {
+    @apply flex items-center gap-2 bg-gradient-to-r from-primary to-primary-dark text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+  
+  .btn-admin {
+    @apply flex items-center gap-2 bg-gradient-to-r from-secondary to-gray-800 text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+  
+  /* Footer */
+  .footer {
+    @apply bg-gradient-to-b from-gray-800 to-gray-900 text-white pt-16 relative z-10;
+  }
+  
+  .footer::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-gold;
+  }
+  
+  .footer-logo {
+    @apply flex items-center gap-2 font-sora font-bold text-xl mb-4;
+  }
+  
+  .footer-desc {
+    @apply text-gray-300 mb-6;
+  }
+  
+  .footer-section h5 {
+    @apply font-sora font-bold text-lg mb-6 relative pb-3;
+  }
+  
+  .footer-section h5::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-10 h-0.5 bg-gradient-to-r from-primary to-gold rounded;
+  }
+  
+  .footer-links {
+    @apply space-y-3;
+  }
+  
+  .footer-links a {
+    @apply text-gray-300 hover:text-gold transition-colors duration-300 flex items-center gap-2;
+  }
+  
+  .contact-info {
+    @apply space-y-4;
+  }
+  
+  .contact-info li {
+    @apply flex items-start gap-3;
+  }
+  
+  .contact-info i {
+    @apply text-gold mt-1;
+  }
+  
+  .social-links {
+    @apply flex gap-3;
+  }
+  
+  .social-link {
+    @apply w-10 h-10 rounded-lg bg-white bg-opacity-10 flex items-center justify-center transition-all duration-300;
+  }
+  
+  .social-link:hover {
+    @apply -translate-y-1;
+  }
+  
+  .social-link.facebook:hover { @apply bg-blue-600; }
+  .social-link.instagram:hover { @apply bg-gradient-to-r from-pink-500 to-purple-500; }
+  .social-link.youtube:hover { @apply bg-red-600; }
+  .social-link.whatsapp:hover { @apply bg-green-500; }
+  
+  .schedule-box {
+    @apply bg-white bg-opacity-5 border border-white border-opacity-10 rounded-xl p-6;
+  }
+  
+  .schedule-item {
+    @apply flex justify-between items-center py-3 border-b border-white border-opacity-5;
+  }
+  
+  .schedule-day {
+    @apply font-semibold text-white;
+  }
+  
+  .schedule-time {
+    @apply text-gold font-medium;
+  }
+  
+  .footer-bottom {
+    @apply border-t border-white border-opacity-10 py-6 mt-12;
+  }
+  
+  .copyright {
+    @apply text-center text-gray-400 text-sm;
+  }
+  
+  .copyright a {
+    @apply text-gold font-semibold hover:underline;
+  }
+  
+  /* Cards */
+  .card-jurusan {
+    @apply bg-white rounded-xl shadow-lg p-0 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 flex flex-col h-full;
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    animation: slideDown 0.3s ease forwards;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ==============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================== */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    @apply h-auto;
+  }
+  
+  .hero-section {
+    @apply py-24 text-center;
+  }
+  
+  .hero-section h1 {
+    @apply text-3xl;
+  }
+  
+  .hero-section h2 {
+    @apply text-2xl;
+  }
+  
+  .footer-section {
+    @apply text-center mb-8;
+  }
+  
+  .social-links {
+    @apply justify-center;
+  }
+  
+  .footer-links, .contact-info {
+    @apply text-center;
+  }
+  
+  .contact-info li {
+    @apply justify-center;
+  }
+  
+  /* Mobile specific navigation */
+  .nav-link {
+    @apply block w-full text-center py-3;
+  }
+  
+  .btn-daftar, .btn-admin {
+    @apply w-full justify-center;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .grid {
+    @apply gap-4;
+  }
+  
+  .card-jurusan {
+    @apply mb-4;
+  }
+}
+
+/* Utility Classes */
+.text-muted {
+  @apply text-gray-500;
+}
+
+.bg-light {
+  @apply bg-gray-50;
+}
