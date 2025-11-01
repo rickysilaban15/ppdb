@@ -94,7 +94,8 @@ class PengumumanController extends Controller
             ['value' => $request->pengumuman_waktu]
         );
 
-        return redirect()->route('pengumuman.index')->with('success', 'Pengaturan pengumuman berhasil diperbarui.');
+        // PERBAIKAN: Gunakan route dengan prefix admin
+        return redirect()->route('admin.pengumuman.index')->with('success', 'Pengaturan pengumuman berhasil diperbarui.');
     }
 
     /**
