@@ -9,7 +9,10 @@ export default defineConfig({
         }),
     ],
     server: {
-    host: 'localhost',
-    port: 4000,
-},
+        hmr: {
+            host: 'stmpancur.sevalla.app',
+            protocol: 'wss', // agar hot reload via HTTPS
+        },
+    },
+    base: '/', // base path untuk production build
 });
